@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.animation {
+  animation: defilement-rtl 30s infinite linear;
+}
+
+@keyframes defilement-rtl {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  min-height: 100vh;
+  height: 100%;
+  font-family: "Montserrat", sans-serif;
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
+
+.link-text {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  z-index: 1;
+  color: #000000;
+  transition: color 1s ease;
+}
+
+.link-text::before {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  left: 10%;
+  width: 80%;
+  height: 0.4rem;
+  background-color: #c0bebe9c;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+  z-index: -1;
+}
+
+.link-text:hover {
+  color: #8f8787;
+}
+
+.link-text:hover::before {
+  transform: scaleX(1);
+}
+
+.heart-icon {
+  color: black;
+}
+
+.heart-icon:hover {
+  color: red;
+}
+
+.dialog-enter {
+  transform: translateY(-100%);
+}
+
+.dialog-enter-active {
+  transform: translateY(0);
+  transition: transform 0.3s;
+}
+
+input::placeholder {
+  color: #000000a2;
+  padding-left: 12px;
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease-in-out;
+  /* Ajoute une transition pour une animation en douceur */
+}
